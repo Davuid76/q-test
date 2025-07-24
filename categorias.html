@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Categorias</title>
+  <style>
+    /* Deixa html e body com 100% da tela e sem margens */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+      position: relative;
+    }
+
+    /* Contêiner principal ocupa toda a tela */
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1; /* Para ficar acima da imagem */
+    }
+
+    /* A imagem fica fixa no fundo, preenchendo a tela toda, mas mantendo proporção */
+    .background-image {
+      position: fixed; /* fixa na tela */
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain; /* mostra a imagem inteira, sem cortes */
+      z-index: 0;
+      pointer-events: none; /* para não interferir nos cliques */
+      background-color: black; /* para preencher possíveis espaços */
+    }
+
+    /* Grid dos botões */
+    .grid-container {
+      display: flex;
+      gap: 150px;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .grid-container button {
+      padding: 25px 60px;
+      font-size: 28px;
+      cursor: pointer;
+      background-color: #996644;
+      color: white;
+      border: none;
+      border-radius: 35px;
+      transition: background-color 0.2s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .grid-container button:hover {
+      background-color: #A0522D;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Imagem de fundo -->
+  <img src="categorias.png" alt="Imagem de fundo" class="background-image" />
+
+  <!-- Conteúdo com os botões -->
+  <div class="container">
+    <div class="grid-container">
+      <div class="column">
+        <button>Filmes</button>
+        <button>Celebridades</button>
+        <button>Países</button>
+        <button>Músicas</button>
+      </div>
+      <div class="column">
+        <button>Futebol</button>
+        <button>História</button>
+        <button>Séries</button>
+        <button>Marcas</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
