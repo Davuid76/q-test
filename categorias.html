@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Categorias</title>
   <style>
-    /* Deixa html e body com 100% da tela e sem margens */
+    /*100% da tela*/
     html, body {
       margin: 0;
       padding: 0;
@@ -14,7 +14,7 @@
       position: relative;
     }
 
-    /* Contêiner principal ocupa toda a tela */
+    /* Contêiner tela toda*/
     .container {
       position: relative;
       width: 100%;
@@ -22,20 +22,20 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 1; /* Para ficar acima da imagem */
+      z-index: 1; /* deixa encima */
     }
 
-    /* A imagem fica fixa no fundo, preenchendo a tela toda, mas mantendo proporção */
+    /* layout preenche tela */
     .background-image {
       position: fixed; /* fixa na tela */
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: contain; /* mostra a imagem inteira, sem cortes */
+      object-fit: contain; 
       z-index: 0;
-      pointer-events: none; /* para não interferir nos cliques */
-      background-color: black; /* para preencher possíveis espaços */
+      pointer-events: none; 
+      background-color: black; 
     }
 
     /* Grid dos botões */
