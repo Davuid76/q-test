@@ -15,6 +15,26 @@
       flex-direction: column;
       align-items: center;
     }
+    .usuario-nome {
+      position: fixed;
+      top: 18px;
+      right: 40px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.3rem;
+      color: #996644;
+      background: #fff8f0;
+      padding: 10px 28px;
+      border-radius: 22px;
+      box-shadow: 0 2px 8px rgba(153,102,68,0.10);
+      z-index: 10;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .perfil-icone {
+      font-size: 1.5rem;
+    }
     .banner {
       width: 100%;
       background: linear-gradient(90deg, #996644 60%, #cbb092 100%);
@@ -36,24 +56,26 @@
       width: 90vw;
       max-width: 1200px;
     }
-    .categoria-card {
-      background: #fff;
-      border-radius: 25px;
-      box-shadow: 0 6px 24px rgba(153,102,68,0.15);
-      width: 260px;
-      height: 180px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2rem;
-      color: #996644;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
+   /* ...existing code... */
+.categoria-card {
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 6px 24px rgba(153,102,68,0.15);
+  width: 320px;         /* aumente a largura */
+  height: 220px;        /* aumente a altura */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 2.3rem;    /* aumente o tamanho da fonte */
+  color: #996644;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
     .categoria-card:hover {
       transform: scale(1.06);
       box-shadow: 0 12px 32px rgba(153,102,68,0.25);
@@ -66,6 +88,10 @@
   </style>
 </head>
 <body>
+  <div class="usuario-nome" id="usuario-nome">
+    <span class="perfil-icone">👤</span>
+    <span id="usuario-nome-texto"></span>
+  </div>
   <div class="banner">Escolha uma Categoria</div>
   <div class="categorias-container">
     <div class="categoria-card" onclick="irParaQuizzes('filmes')">
@@ -105,6 +131,9 @@
     function irParaQuizzes(categoria) {
       window.location.href = `quizzes.html?categoria=${categoria}`;
     }
+    // Exibe nome do usuário no topo direito
+    const usuario = localStorage.getItem('usuario_nome') || 'Usuário';
+    document.getElementById('usuario-nome-texto').textContent = usuario;
   </script>
 </body>
 </html>
