@@ -1,94 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Categorias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /*100% da tela*/
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: sans-serif;
-      position: relative;
-    }
-
-    /* Contêiner tela toda*/
-    .container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1; /* deixa encima */
-    }
-
-    /* layout preenche tela */
-    .background-image {
-      position: fixed; /* fixa na tela */
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain; 
-      z-index: 0;
-      pointer-events: none; 
-      background-color: black; 
-    }
-
-    /* Grid dos botões */
-    .grid-container {
-      display: flex;
-      gap: 150px;
-    }
-
-    .column {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f5e7da 0%, #cbb092 100%);
+      font-family: 'Roboto', Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      align-items: center;
     }
-
-    .grid-container button {
-      padding: 25px 60px;
-      font-size: 28px;
+    .banner {
+      width: 100%;
+      background: linear-gradient(90deg, #996644 60%, #cbb092 100%);
+      color: #fff;
+      padding: 40px 0 30px 0;
+      text-align: center;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+    .categorias-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      margin-top: 30px;
+      width: 90vw;
+      max-width: 1200px;
+    }
+    .categoria-card {
+      background: #fff;
+      border-radius: 25px;
+      box-shadow: 0 6px 24px rgba(153,102,68,0.15);
+      width: 260px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2rem;
+      color: #996644;
       cursor: pointer;
-      background-color: #996644;
-      color: white;
-      border: none;
-      border-radius: 35px;
-      transition: background-color 0.2s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
     }
-
-    .grid-container button:hover {
-      background-color: #A0522D;
+    .categoria-card:hover {
+      transform: scale(1.06);
+      box-shadow: 0 12px 32px rgba(153,102,68,0.25);
+      background: linear-gradient(135deg, #f5e7da 0%, #e7c9a9 100%);
+    }
+    .categoria-icone {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Imagem de fundo -->
-  <img src="categorias.png" alt="Imagem de fundo" class="background-image" />
-
-  <!-- Conteúdo com os botões -->
-  <div class="container">
-    <div class="grid-container">
-      <div class="column">
-        <button>Filmes</button>
-        <button>Celebridades</button>
-        <button>Países</button>
-        <button>Músicas</button>
-      </div>
-      <div class="column">
-        <button>Futebol</button>
-        <button>História</button>
-        <button>Séries</button>
-        <button>Marcas</button>
-      </div>
+  <div class="banner">Escolha uma Categoria</div>
+  <div class="categorias-container">
+    <div class="categoria-card" onclick="irParaQuizzes('filmes')">
+      <div class="categoria-icone">🎬</div>
+      Filmes
+    </div>
+    <div class="categoria-card" onclick="irParaQuizzes('celebridades')">
+      <div class="categoria-icone">🌟</div>
+      Celebridades
+    </div>
+    <div class="categoria-card" onclick="irParaQuizzes('paises')">
+      <div class="categoria-icone">🌍</div>
+      Países
+    </div>
+    <div class="categoria-card" onclick="irParaQuizzes('musicas')">
+      <div class="categoria-icone">🎵</div>
+      Músicas
+    </div>
+    <div class="categoria-card" onclick="irParaQuizzes('futebol')">
+      <div class="categoria-icone">⚽</div>
+      Futebol
+    </div>
+    <div class="categoria-card" onclick="irParaQuizzes('historia')">
+      <div class="categoria-icone">📜</div>
+      História
+    </div>
+    <div class="categoria-card" onclick="irParaQuizzes('series')">
+      <div class="categoria-icone">📺</div>
+      Séries
+    </div>
+    <div class="categoria-card" onclick="irParaQuizzes('marcas')">
+      <div class="categoria-icone">🏷️</div>
+      Marcas
     </div>
   </div>
-
+  <script>
+    function irParaQuizzes(categoria) {
+      window.location.href = `quizzes.html?categoria=${categoria}`;
+    }
+  </script>
 </body>
 </html>
