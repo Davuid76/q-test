@@ -4,45 +4,58 @@
   <meta charset="UTF-8">
   <title>Q-Test</title>
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f5e7da 0%, #cbb092 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
     }
-
-    body {
-      background: url('q-test-layout.png') no-repeat center center;
-      background-size: cover;
-      position: relative;
-    
+    h1 {
+      font-size: 4rem;
+      color: #996644;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+      animation: fadeInDown 1s;
     }
-
     .botao-go {
-      position: absolute;
-      top: 90%; /* Ajuste baseado na posição do botão na imagem */
-      left: 47.5%; /* Centralizado aproximadamente */
-      width: 80px;
-      height: 40px;
-      background-color: rgba(255, 255, 255, 0); /* transparente */
+      width: 160px;
+      height: 70px;
+      background-color: #996644;
+      color: white;
+      font-size: 2rem;
       border: none;
+      border-radius: 20px;
       cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background 0.2s;
+      animation: fadeInUp 1s;
     }
-
-    .botao-home {
-      position: absolute;
-      top: 90%; /* Ajuste baseado na posição do botão na imagem */
-      left: 47.5%; /* Centralizado aproximadamente */
-      width: 80px;
-      height: 40px;
-      background-color: rgba(255, 255, 255, 0); /* transparente */
-      border: none;
-      cursor: pointer;
+    .botao-go:hover {
+      background: #7a4f27;
+      transform: scale(1.08);
     }
-
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
   </style>
+  <script>
+    function aoClicarGo() {
+      window.location.href = 'nome.html';
+    }
+  </script>
 </head>
 <body>
-  <button class="botao-go" onclick="window.location.href='nome.html'"></button>
+  <h1>Q-Test</h1>
+  <button class="botao-go" onclick="aoClicarGo()">Começar</button>
 </body>
 </html>
