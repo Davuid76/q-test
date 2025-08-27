@@ -1,69 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Registro</title>
   <style>
-    html, body {
-      margin: 0; padding: 0; height: 100%; overflow: hidden;
-    }
-
     body {
-      background: url('Cadastro.png') no-repeat center center;
-      background-size: cover;
-      position: relative;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e0d3c2 0%, #bfa07a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
     }
-    .layout {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
+    h2 {
+      color: #996644;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      animation: fadeInDown 1s;
     }
-    /* Campo texto invisível */
     .input-nick {
-      position: absolute;
-      top: 62%;    /* ajuste a posição */
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 400px;
-      height: 50px;
-      background-color: transparent;
+      width: 350px;
+      height: 55px;
+      background-color: #e0e0e0;
       border: none;
-      color: rgb(100, 58, 38);       /* texto invisível */
-      caret-color: black;       /* mas cursor visível */
-      font-size: 45px;
+      color: #643a26;
+      font-size: 2rem;
+      border-radius: 25px;
       outline: none;
-      /* Se quiser, adicione underline só pra ajudar */
-      border-bottom: 1px solid rgba(0,0,0,0.3);
-      text-align: center;         /* ← centraliza o texto horizontalmente */
-      line-height: 40px;   
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: box-shadow 0.2s;
+      animation: fadeInUp 1s;
     }
-
-    /* Botão invisível */
+    .input-nick:focus {
+      box-shadow: 0 4px 16px rgba(153,102,68,0.2);
+    }
     .botao-go {
-        position: absolute;
-        top: 75%; /* ajuste conforme necessário */
-        left: 63%;
-        transform: translateX(-50%);
-        width: 120px;
-        height: 65px;
-        background-color: #996644;  /* cor marrom aproximada */
-        color: white;
-        font-size: 20px;
-        font-family: sans-serif;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        outline: #63422c;
+      width: 140px;
+      height: 55px;
+      background-color: #996644;
+      color: white;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background 0.2s;
+      animation: fadeInUp 1.2s;
     }
-
+    .botao-go:hover {
+      background: #7a4f27;
+      transform: scale(1.05);
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .erro {
+      color: #c0392b;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      display: none;
+    }
   </style>
+  <script>
+    function registrarNome() {
+      const input = document.getElementById('nick');
+      const erro = document.getElementById('erro');
+      if (input.value.trim().length < 3) {
+        erro.style.display = 'block';
+        erro.textContent = 'Digite um nome válido (mínimo 3 letras)';
+        input.focus();
+        return false;
+      }
+      localStorage.setItem('usuario_nome', input.value.trim());
+      window.location.href = 'categorias.html';
+      return false;
+    }
+  </script>
 </head>
 <body>
-    <button class="botao-go">Entrar</button>
-    <img src="Cadastro.png" style="width: 100%;">
-  <img src="Cadastro.png" class="layout" alt="layout">
-  <input type="text" class="input-nick" placeholder="" />
-  <button class="botao-go" onclick="window.location.href='categorias.html'">Entrar</button>
-
+  <h2>Digite seu nome para começar</h2>
+  <div id="erro" class="erro"></div>
+  <form onsubmit="return registrarNome()">
+    <input type="text" id="nick" class="input-nick" placeholder="Seu nome..." maxlength="20" autocomplete="off" />
+    <br>
+    <button class="botao-go" type="submit">Entrar</button>
+  </form>
 </body>
 </html>
