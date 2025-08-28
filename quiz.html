@@ -5,169 +5,7 @@
   <title>Quiz</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      font-family: 'Roboto', Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: #fff;
-    }
     
-    .bg-animada {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 0;
-      background: linear-gradient(135deg, rgba(255,80,80,0.85) 0%, rgba(200,40,40,0.85) 100%);
-    }
-    .bg-img {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 1;
-      background: url('image.png') repeat-x center center/cover;
-      opacity: 0.35;
-      animation: mover-bg 30s linear infinite;
-      pointer-events: none;
-    }
-    @keyframes mover-bg {
-      0% { background-position-x: 0; }
-      100% { background-position-x: 1000px; }
-    }
-    
-    .usuario-nome {
-      position: fixed;
-      top: 18px;
-      right: 40px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1.3rem;
-      color: #fff;
-      background: rgba(255, 0, 0, 0.8);
-      padding: 10px 28px;
-      border-radius: 22px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      z-index: 3;
-      letter-spacing: 1px;
-    }
-    
-    .banner {
-      width: 100%;
-      background: linear-gradient(90deg, #cc0000 60%, #ff4d4d 100%);
-      color: #fff;
-      padding: 40px 0 30px 0;
-      text-align: center;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-      margin-bottom: 40px;
-      position: relative;
-      z-index: 3;
-    }
-   
-    .pergunta {
-      margin-top: 20px;
-      font-size: 2rem;
-      color: #fff;
-      font-family: 'Montserrat', Arial, sans-serif;
-      text-align: center;
-      min-height: 60px;
-      z-index: 3;
-      position: relative;
-    }
-    
-    .opcoes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-top: 40px;
-      align-items: center;
-      justify-content: center;
-      animation: fadeInUp 1.2s;
-      max-width: 700px;
-      width: 100%;
-      z-index: 3;
-      position: relative;
-    }
-    .opcoes button {
-      padding: 32px 0;
-      font-size: 1.5rem;
-      cursor: pointer;
-      background-color: #cc0000;
-      color: white;
-      border: none;
-      border-radius: 32px;
-      transition: background-color 0.2s, transform 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-      font-family: 'Montserrat', Arial, sans-serif;
-      width: 100%;
-      min-height: 90px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .opcoes button:hover {
-      background-color: #a50000;
-      transform: scale(1.05);
-    }
-    
-    .resultado {
-      margin-top: 40px;
-      font-size: 1.5rem;
-      color: #00ff66;
-      font-family: 'Montserrat', Arial, sans-serif;
-      animation: fadeInUp 1.5s;
-      min-height: 40px;
-      text-align: center;
-      position: relative;
-      z-index: 3;
-    }
-    
-    .botoes-finais {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-      margin-top: 40px;
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 3;
-    }
-    .botoes-finais button {
-      padding: 18px 38px;
-      font-size: 1.1rem;
-      border-radius: 18px;
-      border: none;
-      background: #cc0000;
-      color: #fff;
-      font-family: 'Montserrat', Arial, sans-serif;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      transition: background 0.2s, transform 0.2s;
-    }
-    .botoes-finais button:hover {
-      background: #a50000;
-      transform: scale(1.06);
-    }
-    @media (max-width: 700px) {
-      .opcoes {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        max-width: 95vw;
-      }
-      .opcoes button {
-        font-size: 1.2rem;
-        padding: 24px 0;
-        min-height: 70px;
-      }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
   </style>
 </head>
 <body>
@@ -183,7 +21,6 @@
     <button onclick="irHome()">Inicio</button>
   </div>
   <script>
-    
     const quizzes = {
       filmes: {
         harrypotter: [
@@ -199,14 +36,10 @@
             opcoes: ["Remus Lupin", "Sirius Black", "Alvo Dumbledore", "Rúbeo Hagrid"],
             resposta: 1
           },
-          { pergunta: "Qual é a casa de Harry em Hogwarts",
-            opcoes: ["Sonserina", "Lufa-Lufa", "Corvinal", "Sonserina"],
+          { pergunta: "Qual é a casa de Harry em Hogwarts?",
+            opcoes: ["Sonserina", "Lufa-Lufa", "Corvinal", "Grifinória"],
             resposta: 3
-          },
-          { pergunta: "Qual é a casa de Harry em Hogwarts",
-            opcoes: ["Sonserina", "Lufa-Lufa", "Corvinal", "Sonserina"],
-            resposta: 3
-          },
+          }
         ],
         classicos: [
           { pergunta: "Quem dirigiu o filme 'E.T. – O Extraterrestre'?",
@@ -230,7 +63,7 @@
       paises: {
         gerais: [
           { pergunta: "Qual é o maior país do mundo em extensão territorial?",
-            opcoes: ["Canadá", "China", "Russia", "EUA"],
+            opcoes: ["Canadá", "China", "Rússia", "EUA"],
             resposta: 2
           },
           { pergunta: "Qual é o país mais populoso do mundo em 2025?",
@@ -271,6 +104,50 @@
           }
         ]
       },
+      futebol: {
+        copa: [
+          { pergunta: "Qual país sediou a Copa do Mundo de 2014?",
+            opcoes: ["Brasil", "Alemanha", "África do Sul", "Rússia"],
+            resposta: 0
+          },
+          { pergunta: "Quem é o maior artilheiro da história das Copas do Mundo?",
+            opcoes: ["Pelé", "Miroslav Klose", "Ronaldo Fenômeno", "Gerd Müller"],
+            resposta: 1
+          },
+          { pergunta: "Qual país sediou a primeira Copa do Mundo de futebol em 1930?",
+            opcoes: ["Brasil", "Alemanha", "África do Sul", "Uruguai"],
+            resposta: 3
+          },
+          { pergunta: "Quem foi o artilheiro da Copa do Mundo de 2002?",
+            opcoes: ["Klose", "Ronaldo Fenômeno", "África do Sul", "Uruguai"],
+            resposta: 1
+          },
+          { pergunta: "Qual país foi campeão da Copa de 2018?",
+            opcoes: ["França", "Croácia", "Alemanha", "Brasil"],
+            resposta: 0
+          },
+          { pergunta: "Qual desses países nunca sediou uma Copa do Mundo?",
+            opcoes: ["México", "Espanha", "Inglaterra", "Portugal"],
+            resposta: 3
+          }
+        ]
+      },
+      musica: {
+        anos2000: [
+          { pergunta: "Onde surgiu a música na história da humanidade?",
+            opcoes: ["Em templos e rituais religiosos", "Nas fábricas", "Nas escolas", "Nas guerras"],
+            resposta: 0
+          },
+          { pergunta: "Qual música de Harry Styles explodiu nas paradas e se tornou um hino de autoestima?",
+            opcoes: ["Watermelon Sugar", "Adore You", "As It Was", "Sign of the Times"],
+            resposta: 2
+          },
+          { pergunta: "Quem é a cantora que ficou famosa com Good 4 U?",
+            opcoes: ["Halsey", "Olivia Rodrigo", "Billie Eilish", "Ariana Grande"],
+            resposta: 1
+          }
+        ]
+      }
     };
 
     const params = new URLSearchParams(window.location.search);
@@ -340,4 +217,3 @@
   </script>
 </body>
 </html>
-
