@@ -15,7 +15,7 @@
       align-items: center;
       color: #fff;
     }
-    
+
     .bg-animada {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -35,7 +35,7 @@
       0% { background-position-x: 0; }
       100% { background-position-x: 1000px; }
     }
-    
+
     #voltar-categorias {
       position: fixed;
       bottom: 30px;
@@ -55,7 +55,7 @@
     #voltar-categorias:hover {
       background: #a50000;
     }
-    
+
     .banner {
       width: 100%;
       background: linear-gradient(90deg, #cc0000 60%, #ff4d4d 100%);
@@ -70,7 +70,7 @@
       z-index: 3;
       position: relative;
     }
-    
+
     .quizzes-container {
       display: flex;
       flex-wrap: wrap;
@@ -122,8 +122,9 @@
   </button>
   <div class="banner" id="banner"></div>
   <div class="quizzes-container" id="quizzes"></div>
+
   <script>
-    // Perguntas
+    // Quizzes por categoria
     const quizzesPorCategoria = {
       filmes: [
         { titulo: "O que você sabe sobre Harry Potter?", desc: "Teste seus conhecimentos sobre a saga!", id: "harrypotter" },
@@ -136,12 +137,12 @@
         { titulo: "Conhecimentos Gerais dos países", desc: "Quanto você sabe sobre os países?", id: "gerais" }
       ],
       musicas: [
-        { titulo: "Você conhece a história da música?", desc: " O quanto você conhece as origens das músicas?", id: "anos2000" }
+        { titulo: "Você conhece a história da música?", desc: "O quanto você conhece as origens das músicas?", id: "anos2000" }
       ],
-     futebol: [
+      futebol: [
         { titulo: "Copa do Mundo", desc: "Teste seus conhecimentos sobre a Copa!", id: "copa" }
       ],
-     series: [
+      series: [
         { titulo: "Tela e Pipoca: Quiz para Amantes de Séries", desc: "Você é um verdadeiro fã de Séries?", id: "got" }
       ]
     };
@@ -154,6 +155,7 @@
 
     const quizzes = quizzesPorCategoria[categoria] || [];
     const container = document.getElementById('quizzes');
+
     if (quizzes.length === 0) {
       container.innerHTML = "<div style='font-size:1.3rem;color:#fff;'>Nenhum quiz disponível para esta categoria ainda.</div>";
     } else {
@@ -168,7 +170,3 @@
   </script>
 </body>
 </html>
-
-
-<!DOCTYPE html><html lang="pt-br">
-<head>
