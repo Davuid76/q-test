@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-animada {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background: 
+      linear-gradient(135deg, rgba(80, 92, 255, 0.8) 0%, rgba(64, 40, 200, 0.8) 100%);
+  }
+  .bg-img {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+    background: url('image.png') repeat-x center center/cover;
+    opacity: 0.35;
+    animation: mover-bg 30s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes mover-bg {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+  }
+  h1 {
+    font-size: 4rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    z-index: 2;
+    position: relative;
+  }
+  .botao-go {
+    width: 160px;
+    height: 70px;
+    background-color: #3c22b2;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(178,34,34,0.18);
+    transition: transform 0.2s, background 0.2s;
+    animation: fadeInUp 1s;
+    z-index: 2;
+    position: relative;
+  }
+  .botao-go:hover {
+    background: #381a8b;
+    transform: scale(1.08);
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
