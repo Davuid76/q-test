@@ -3,18 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Categorias</title>
+  <!-- Importa as fontes Montserrat e Roboto do Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Importa o arquivo de estilos da página -->
   <link href="categorias.css" rel="stylesheet">
 </head>
 <body>
+  <!-- Fundo animado azul/roxo -->
   <div class="bg-animada"></div>
+  <!-- Imagem de fundo com opacidade -->
   <div class="bg-img"></div>
-  <div class="usuario-nome" id="usuario-nome">
+  
+  <!-- Exibe o nome do usuário no topo direito, clicável para abrir o perfil -->
+  <div class="usuario-nome" id="usuario-nome" style="cursor:pointer;">
     <span class="perfil-icone">👤</span>
     <span id="usuario-nome-texto"></span>
   </div>
+  
+  <!-- Banner principal da página -->
   <div class="banner">Escolha uma Categoria</div>
+  
+  <!-- Container com todos os cards de categorias -->
   <div class="categorias-container">
+    <!-- Cada card representa uma categoria e leva para os quizzes daquela categoria -->
     <div class="categoria-card" onclick="irParaQuizzes('filmes')">
       <div class="categoria-icone">🎬</div>
       Filmes
@@ -49,14 +60,20 @@
     </div>
   </div>
   <script>
+    // Função chamada ao clicar em uma categoria, redireciona para a página de quizzes da categoria escolhida
     function irParaQuizzes(categoria) {
       window.location.href = `quizzes.html?categoria=${categoria}`;
     }
-    //icone no topo direito
+
+    // Recupera o nome do usuário do localStorage ou usa "Usuário" como padrão
     const usuario = localStorage.getItem('usuario_nome') || 'Usuário';
+    // Exibe o nome do usuário no elemento correspondente
     document.getElementById('usuario-nome-texto').textContent = usuario;
+
+    // Adiciona evento de clique no nome do usuário para abrir a página de perfil
+    document.getElementById('usuario-nome').addEventListener('click', function() {
+      window.location.href = 'perfil.html';
+    });
   </script>
 </body>
-
 </html>
-
