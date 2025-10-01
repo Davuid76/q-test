@@ -8,8 +8,8 @@
 <body>
   <div class="bg-animada"></div>
   <div class="bg-img"></div>
-
-  <div class="usuario-nome" id="usuario-nome">
+  <!-- Botão/área de perfil no topo direito -->
+  <div class="usuario-nome" id="usuario-nome" style="cursor:pointer;">
     <span class="perfil-icone">👤</span>
     <span id="usuario-nome-texto"></span>
   </div>
@@ -28,33 +28,6 @@
     </table>
   </div>
 
-  <script>
-    const usuario = localStorage.getItem('usuario_nome') || 'Usuário';
-    document.getElementById('usuario-nome-texto').textContent = usuario;
-
-    const params = new URLSearchParams(window.location.search);
-    const categoria = params.get('categoria') || 'filmes';
-    const quizId = params.get('quiz') || 'harrypotter';
-    const key = `ranking_${categoria}_${quizId}`;
-    let ranking = [];
-    try {
-      ranking = JSON.parse(localStorage.getItem(key)) || [];
-    } catch {}
-
-    const table = document.getElementById('ranking-table');
-    ranking.forEach((item, idx) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${idx + 1}</td>
-                      <td>${item.nome}</td>
-                      <td>${item.pontos} / ${item.total}</td>
-                      <td>${new Date(item.data).toLocaleDateString()}</td>`;
-      table.appendChild(tr);
-    });
-
-    function voltarParaQuizzes() {
-      const categoria = new URLSearchParams(window.location.search).get('categoria') || 'filmes';
-      window.location.href = `categorias.html`;
-    }
-  </script>
+  <script src="ranking.js"></script>
 </body>
 </html>
