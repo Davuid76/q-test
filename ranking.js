@@ -1,7 +1,7 @@
-// Exibe o nome do usuário no topo direito
+// nome do usuário no topo direito
     const usuario = localStorage.getItem('usuario_nome') || 'Usuário';
     document.getElementById('usuario-nome-texto').textContent = usuario;
-    // Ao clicar, vai para a página de perfil
+    // Ao clicar vai para a página de perfil
     document.getElementById('usuario-nome').onclick = function() {
       window.location.href = 'perfil.html';
     };
