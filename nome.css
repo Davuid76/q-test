@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 body {
     margin: 0;
     padding: 0;
@@ -8,7 +9,11 @@ body {
     justify-content: center;
     font-family: 'Segoe UI', sans-serif;
     position: relative;
-    overflow: hidden;
+      font-family: 'Luckiest Guy', cursive, 'Montserrat', Arial, sans-serif;
+    }
+
+  h1 {
+    font-family: 'Shadows Into Light', cursive, 'Segoe UI', sans-serif !important;
   }
   .bg-animada {
     position: fixed;
