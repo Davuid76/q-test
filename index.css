@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 body {
     margin: 0;
     padding: 0;
@@ -31,13 +32,14 @@ body {
     0% { background-position-x: 0; }
     100% { background-position-x: 1000px; }
   }
-  h1 {
-    font-size: 4rem;
-    color: #ffffff;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-    animation: fadeInDown 1s;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    h1 {
+      font-size: 4rem;
+      color: #ffffff;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+      animation: fadeInDown 1s;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      font-family: 'Shadows Into Light', cursive, 'Segoe UI', sans-serif;
     z-index: 2;
     position: relative;
   }
