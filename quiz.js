@@ -109,6 +109,21 @@ function mostrarPergunta() {
     // Mostra o botão de curtir, se existir a função
     if (window.mostrarBotaoCurtir) window.mostrarBotaoCurtir();
     salvarPontuacao();
+
+    // Salva o quiz feito e a pontuação no localStorage para o perfil
+    try {
+      let feitos = JSON.parse(localStorage.getItem('quizzes_feitos')) || [];
+      // Evita duplicatas: só adiciona se não existir
+      if (!feitos.some(q => q.categoria === categoria && q.quiz === quizId)) {
+        feitos.push({ categoria, quiz: quizId, data: new Date().toISOString() });
+        localStorage.setItem('quizzes_feitos', JSON.stringify(feitos));
+      }
+    } catch(e) {}
+    try {
+      let pontos = JSON.parse(localStorage.getItem('quizzes_pontos')) || [];
+      pontos.push(acertos);
+      localStorage.setItem('quizzes_pontos', JSON.stringify(pontos));
+    } catch(e) {}
     return;
   }
   // Mostra a pergunta e as opções
