@@ -1,3 +1,6 @@
+.banner {
+  font-family: 'Shadows Into Light', cursive, 'Segoe UI', sans-serif !important;
+}
 body {
   margin: 0;
   padding: 0;
@@ -36,7 +39,7 @@ body {
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1.3rem;
   color: #4359b1;
-  background: #d8cff9;
+  background: #ffffff;
   padding: 10px 28px;
   border-radius: 22px;
   box-shadow: 0 2px 8px rgba(95, 68, 153, 0.1);
