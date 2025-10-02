@@ -7,8 +7,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <!-- Importa o arquivo de estilos da página -->
   <link href="categorias.css" rel="stylesheet">
+  <link href="sidebar.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Barra lateral de navegação -->
+  <nav class="sidebar">
+    </button>
+    <button class="sidebar-btn" title="Curtidos" onclick="window.location.href='curtidos.html'">
+      <span class="sidebar-icone">❤️</span>
+    </button>
+    <button class="sidebar-btn" title="Perfil" onclick="window.location.href='perfil.html'">
+      <span class="sidebar-icone">👤</span>
+    </button>
+  </nav>
   <!-- Fundo animado azul/roxo -->
   <div class="bg-animada"></div>
   <!-- Imagem de fundo com opacidade -->
@@ -69,11 +80,6 @@
     const usuario = localStorage.getItem('usuario_nome') || 'Usuário';
     // Exibe o nome do usuário no elemento correspondente
     document.getElementById('usuario-nome-texto').textContent = usuario;
-
-    // Adiciona evento de clique no nome do usuário para abrir a página de perfil
-    document.getElementById('usuario-nome').addEventListener('click', function() {
-      window.location.href = 'perfil.html';
-    });
   </script>
 </body>
 </html>
