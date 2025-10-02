@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="ranking.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+    .perfil-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff !important;
+      border-radius: 32px;
+      box-shadow: none !important;
+      padding: 64px 48px 48px 48px;
+      text-align: center;
+      color: #4e30a3;
+      font-family: 'Montserrat', Arial, sans-serif;
+      position: relative;
+      opacity: 1 !important;
+      filter: none !important;
+    }
+    .perfil-icone {
+      font-size: 6rem;
+      margin-bottom: 32px;
+      color: #4e30a3;
+      display: block;
+    }
+    .perfil-nome {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .perfil-quizzes, .perfil-pontos {
+      font-size: 2rem;
+      color: #564499;
+      margin-bottom: 18px;
+    }
+    #voltar-categorias {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      padding: 10px 28px;
+      border-radius: 18px;
+      border: none;
+      background: #4d22b2;
+      color: #fff;
+      font-size: 1.1rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.2s;
+      z-index: 3;
+    }
+    #voltar-categorias:hover {
+      background: #2b1a8bb4;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animada"></div>
+  <div class="bg-img"></div>
+    <div class="perfil-container">
+  <button id="voltar-categorias" onclick="window.location.href='categorias.html'">← Voltar</button>
+      <span class="perfil-icone">👤</span>
+      <div class="perfil-nome" id="perfil-nome"></div>
+      <div class="perfil-quizzes" id="perfil-quizzes"></div>
+      <div class="perfil-pontos" id="perfil-pontos"></div>
+    </div>
+  <script>
+    // Pega nome do usuário
+    const nome = localStorage.getItem('usuario_nome') || 'Usuário';
+    document.getElementById('perfil-nome').textContent = nome;
+    // Conta quizzes feitos
+    let feitos = 0;
+    let pontos = 0;
+    try {
+      const arr = JSON.parse(localStorage.getItem('quizzes_feitos'));
+      if (Array.isArray(arr)) feitos = arr.length;
+    } catch(e) {}
+    try {
+      const arr = JSON.parse(localStorage.getItem('quizzes_pontos'));
+      if (Array.isArray(arr)) pontos = arr.reduce((acc, p) => acc + (typeof p === 'number' ? p : 0), 0);
+    } catch(e) {}
+    document.getElementById('perfil-quizzes').textContent = `Quizzes feitos: ${feitos}`;
+    document.getElementById('perfil-pontos').textContent = `Total de pontos: ${pontos}`;
+  </script>
+</body>
+</html>
