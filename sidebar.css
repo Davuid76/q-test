@@ -36,7 +36,6 @@
 .sidebar-btn {
   background: #fff;
   color: #4e30a3;
-  /* ...restante das regras... */
 }
 .sidebar-icone {
   font-size: 2rem;
@@ -62,4 +61,5 @@ body {
   body {
     padding-left: 48px;
   }
+
 }
