@@ -1,3 +1,7 @@
+.banner {
+  font-family: 'Shadows Into Light', cursive, 'Segoe UI', sans-serif !important;
+}
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 body {
     margin: 0;
     padding: 0;
@@ -51,7 +55,7 @@ body {
     font-family: 'Montserrat', Arial, sans-serif;
     font-size: 1.3rem;
     color: #564499;
-    background: #d8cff9;
+    background: #ffffff;
     padding: 10px 28px;
     border-radius: 22px;
     box-shadow: 0 2px 8px rgba(153,102,68,0.10);
@@ -70,13 +74,19 @@ body {
     color: #fff;
     padding: 40px 0 30px 0;
     text-align: center;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Luckiest Guy', cursive, 'Montserrat', Arial, sans-serif;
     font-size: 2.5rem;
     letter-spacing: 2px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     margin-bottom: 40px;
     z-index: 3;
     position: relative;
+  }
+  .quiz-card {
+    font-family: 'Luckiest Guy', cursive, 'Montserrat', Arial, sans-serif;
+  }
+  .usuario-nome {
+    font-family: 'Luckiest Guy', cursive, 'Montserrat', Arial, sans-serif;
   }
 
   .quizzes-container {
