@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Quizzes Curtidos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="categorias.css" rel="stylesheet">
+  <link href="curtidos.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <div class="bg-animada"></div>
+  <div class="bg-img"></div>
+  <!-- Exibe o nome do usuário no topo direito, clicável para abrir o perfil -->
+  <div class="usuario-nome" id="usuario-nome" style="cursor:pointer;">
+    <span class="perfil-icone">👤</span>
+    <span id="usuario-nome-texto"></span>
+  </div>
+  <main class="curtidos-container">
+    <h1>Quizzes Curtidos</h1>
+    <button id="voltar-categorias" onclick="window.location.href='categorias.html'">
+      ← Voltar
+    </button>
+    <div class="curtidos-grid" id="curtidos-grid"></div>
+    <script>
+      document.getElementById('voltar-categorias').onclick = function() {
+        window.location.href = 'categorias.html';
+      };
+    </script>
+  </main>
+  <script src="curtidos.js"></script>
+  <script>
+    // Copiado de categorias.html para exibir o nome do usuário
+    const nomeUsuario = localStorage.getItem('usuario_nome') || 'Usuário';
+    document.getElementById('usuario-nome-texto').textContent = nomeUsuario;
+  </script>
+</body>
+</html>
